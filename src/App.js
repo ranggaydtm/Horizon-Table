@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unused-vars */
+import { Box, ChakraProvider, Flex } from "@chakra-ui/react";
+import DataTable from "./views/table";
+import Sidebar from "./components/sidebar/Sidebar";
+import Navbar from "./components/navbar/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import TableDevelopment from "./views/table/components/TableDevelopment";
+import TableCheck from "./views/table/components/TableCheck";
+import Layout from "./views/layout";
+import AppRoutes from "./views/routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ChakraProvider>
+        <Router>
+          <Routes>
+            <Route Component={Layout} />
+          </Routes>
+          <Layout />
+        </Router>
+      </ChakraProvider>
+      {/* <ChakraProvider>
+        <Router>
+          <Routes>
+            <Route Component={Layout} />
+          </Routes>
+          <Flex>
+            <Sidebar />
+            <Box flex="1">
+              <Navbar />
+              <Box p="4">
+                <Routes>
+                  <Route
+                    path="/data-table"
+                  />
+                </Routes>
+              </Box>
+            </Box>
+          </Flex>
+        </Router>
+      </ChakraProvider> */}
+    </>
   );
 }
 
