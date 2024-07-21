@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Box, Flex, useColorModeValue, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { Box, Flex, useColorModeValue, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -69,6 +69,24 @@ const Navbar = () => {
               </BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
+
+          <Text
+            borderRadius="inherit"
+            fontWeight="bold"
+            fontSize="34px"
+            _active={{
+              bg: "inherit",
+              transform: "none",
+              borderColor: "transparent",
+            }}
+            _focus={{
+              boxShadow: "none",
+            }}
+          >
+            {path === "dashboard" && "Dashboard"}
+            {path === "data-table" && "Data Table"}
+            {path === "profile" && "Profile"}
+          </Text>
         </Box>
       </Flex>
     </Box>
