@@ -6,14 +6,20 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { SidebarContext } from "../../components/sidebar/SidebarContext";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import DataTable from "../table";
+import Dashboard from "../dashboard/Dashboard";
+import Profile from "../profile/Profile";
 
 export default function Layout(props) {
   const { ...rest } = props;
+  const location = useLocation();
+  const path = location.pathname.substring(1);
+
   const [fixed] = useState(false);
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const { onOpen } = useDisclosure();
+
   return (
     <Box>
       <Box>
@@ -44,7 +50,9 @@ export default function Layout(props) {
               </Box>
             </Portal>
             <Box mx="auto" p={{ base: "20px", md: "30px" }} pe="20px" minH="100vh" pt="50px">
-              <DataTable />
+              {path === "dashboard" && <Dashboard />}
+              {path === "data-table" && <DataTable />}
+              {path === "profile" && <Profile />}
             </Box>
             <Box>
               <Footer />

@@ -1,45 +1,25 @@
 /* eslint-disable no-unused-vars */
-import { Box, ChakraProvider, Flex } from "@chakra-ui/react";
-import DataTable from "./views/table";
-import Sidebar from "./components/sidebar/Sidebar";
-import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import TableDevelopment from "./views/table/components/TableDevelopment";
-import TableCheck from "./views/table/components/TableCheck";
+import { ChakraProvider } from "@chakra-ui/react";
+import DataTable from "./views/table/index";
+import Dashboard from "./views/dashboard/Dashboard";
+import Profile from "./views/profile/Profile";
 import Layout from "./views/layout";
-import AppRoutes from "./views/routes";
 
 function App() {
   return (
     <>
       <ChakraProvider>
         <Router>
-          <Routes>
-            <Route Component={Layout} />
-          </Routes>
-          <Layout />
+          <Layout>
+            <Routes>
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="data-table" element={<DataTable />} />
+              <Route path="profile" element={<Profile />} />
+            </Routes>
+          </Layout>
         </Router>
       </ChakraProvider>
-      {/* <ChakraProvider>
-        <Router>
-          <Routes>
-            <Route Component={Layout} />
-          </Routes>
-          <Flex>
-            <Sidebar />
-            <Box flex="1">
-              <Navbar />
-              <Box p="4">
-                <Routes>
-                  <Route
-                    path="/data-table"
-                  />
-                </Routes>
-              </Box>
-            </Box>
-          </Flex>
-        </Router>
-      </ChakraProvider> */}
     </>
   );
 }

@@ -23,7 +23,7 @@ const Sidebar = () => {
 
           <Stack direction="column" mb="auto" mt="8px">
             <Box pe={{ md: "16px", "2xl": "1px" }}>
-              <Link to="/">
+              <Link to="/dashboard">
                 <Flex direction="row" gap={4} align="center">
                   <Icon as={IoMdHome} boxSize={iconSize} display="inline-block" />
                   <Text fontSize="16px">Main Dashboard</Text>
@@ -35,7 +35,7 @@ const Sidebar = () => {
                   <Text fontSize="16px">Data Table</Text>
                 </Flex>
               </Link>
-              <Link to="/">
+              <Link to="/profile">
                 <Flex direction="row" gap={4} align="center" pt={3}>
                   <Icon as={IoMdPerson} boxSize={iconSize} display="inline-block" />
                   <Text fontSize="16px">Profile</Text>

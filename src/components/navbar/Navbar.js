@@ -1,7 +1,10 @@
 /* eslint-disable no-unused-vars */
-import { Box, Flex, Text, Spacer, Button, useColorModeValue, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { Box, Flex, useColorModeValue, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+  const path = location.pathname.substring(1);
   const navbarBg = useColorModeValue("rgba(244, 247, 254, 0.2)", "rgba(11,20,55,0.5)");
   const navbarBackdrop = "blur(20px)";
   const secondaryText = useColorModeValue("#4A5568");
@@ -59,14 +62,10 @@ const Navbar = () => {
         <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>
             <BreadcrumbItem color={secondaryText} fontSize="sm" mb="5px">
-              <BreadcrumbLink href="#" color={secondaryText}>
-                Pages
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem color={secondaryText} fontSize="sm" mb="5px">
-              <BreadcrumbLink href="#" color={secondaryText}>
-                {/* {brandText} */}
+              <BreadcrumbLink href="" color={secondaryText}>
+                {path === "dashboard" && "Dashboard Page"}
+                {path === "data-table" && "Data Table Page"}
+                {path === "profile" && "Profile Page"}
               </BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
