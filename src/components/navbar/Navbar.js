@@ -63,9 +63,9 @@ const Navbar = () => {
           <Breadcrumb>
             <BreadcrumbItem color={secondaryText} fontSize="sm" mb="5px">
               <BreadcrumbLink href="" color={secondaryText}>
-                {path === "dashboard" && "Dashboard Page"}
-                {path === "data-table" && "Data Table Page"}
-                {path === "profile" && "Profile Page"}
+                Pages / {path === "dashboard" && "Dashboard"}
+                {path === "data-table" && "Data Table"}
+                {path === "profile" && "Profile"}
               </BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>

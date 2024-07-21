@@ -1,12 +1,12 @@
 /*eslint-disable*/
-import { Flex, Link, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Link, Text, useColorModeValue } from "@chakra-ui/react";
 import { IconBrandGithub } from "@tabler/icons-react";
 
 export default function Footer() {
   const textColor = useColorModeValue("#A0AEC0", "#FFFFFF");
   return (
     <Flex
-      zIndex="3"
+      zIndex="1000"
       flexDirection={{
         base: "column",
         xl: "row",

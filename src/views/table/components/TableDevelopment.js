@@ -1,6 +1,4 @@
 import moment from "moment";
-import Card from "../../../components/card/Card";
-
 import {
   Table,
   Thead,
@@ -23,6 +21,7 @@ import {
   IconButton,
   FormControl,
   FormLabel,
+  Box,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { IconSquareRoundedPlus, IconPencil, IconTrash } from "@tabler/icons-react";
@@ -137,20 +136,22 @@ function TableDevelopment() {
               </SimpleGrid>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={handleClose}>Cancel</Button>
-              <Button onClick={handleSubmit}>{currentValue ? "Update" : "Submit"}</Button>
+              <Flex gap={2}>
+                <Button onClick={handleClose}>Cancel</Button>
+                <Button onClick={handleSubmit}>{currentValue ? "Update" : "Submit"}</Button>
+              </Flex>
             </ModalFooter>
           </ModalContent>
         </Modal>
       )}
-      <Card direction="column" w="100%" px="0px" overflowX={{ sm: "scroll", lg: "hidden" }}>
-        <Flex px="25px" justify="space-between" mb="20px" align="center">
-          <Text fontSize="22px" fontWeight="700">
+      <Box sx={{ p: "20px", display: "flex", flexDirection: "column", width: "100%", position: "relative", borderRadius: "20px", minWidth: "0px", wordWrap: "break-word", bgColor: "#FFF" }}>
+        <Flex justify="space-between" mb="20px" align="center">
+          <Text px="20px" fontSize="18px" fontWeight="700">
             Development Table
           </Text>
           <Flex direction="row">
             <Input type="search" w="200px" placeholder="Search" borderRadius="30px" fontWeight="500" fontSize="small" onChange={handleSearch} />
-            <IconButton onClick={() => handleOpen()}>
+            <IconButton variant="outlined" onClick={() => handleOpen()}>
               <IconSquareRoundedPlus />
             </IconButton>
           </Flex>
@@ -171,7 +172,7 @@ function TableDevelopment() {
                 <Td fontSize="14px">{item.progress}%</Td>
                 <Td fontSize="14px">{moment(item.date).format("D MMMM YYYY")}</Td>
                 <Td>
-                  <Flex direction="row" alignContent="start" alignItems="start">
+                  <Flex direction="row" alignContent="start" gap={1.5}>
                     <IconButton onClick={() => handleOpen(item)}>
                       <IconPencil />
                     </IconButton>
@@ -184,7 +185,7 @@ function TableDevelopment() {
             ))}
           </Tbody>
         </Table>
-      </Card>
+      </Box>
     </>
   );
 }

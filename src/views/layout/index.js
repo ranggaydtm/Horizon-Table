@@ -49,12 +49,12 @@ export default function Layout(props) {
                 <Navbar onOpen={onOpen} fixed={fixed} {...rest} />
               </Box>
             </Portal>
-            <Box mx="auto" p={{ base: "20px", md: "30px" }} pe="20px" minH="100vh" pt="50px">
+            <Box mx="auto" p={{ base: "20px", md: "30px" }} pe="20px" minH="100vh" pt="50px" bgColor="#edf3f7">
               {path === "dashboard" && <Dashboard />}
               {path === "data-table" && <DataTable />}
               {path === "profile" && <Profile />}
             </Box>
-            <Box>
+            <Box bgColor="#edf3f7">
               <Footer />
             </Box>
           </Box>
